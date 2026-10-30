@@ -19,6 +19,15 @@
   <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=for-the-badge" alt="PostgreSQL" />
 </p>
 
+<p align="center">
+  <a href="https://classroom-allocator.onrender.com/">
+    <img
+      src="https://img.shields.io/badge/Open_Live_Website-171717?style=for-the-badge&logo=googlechrome&logoColor=FFE470"
+      alt="Open Classroom Allocator"
+    />
+  </a>
+</p>
+
 ## User Flow
 
 ```mermaid
@@ -63,14 +72,6 @@ flowchart TD
 Teacher and Student timetables require the appropriate account links
 and a published schedule.
 
-<p align="center">
-  <a href="https://classroom-allocator.onrender.com/">
-    <img
-      src="https://img.shields.io/badge/Open_Live_Website-171717?style=for-the-badge&logo=googlechrome&logoColor=FFE470"
-      alt="Open Classroom Allocator"
-    />
-  </a>
-</p>
 
 # Classroom Allocation System
 
