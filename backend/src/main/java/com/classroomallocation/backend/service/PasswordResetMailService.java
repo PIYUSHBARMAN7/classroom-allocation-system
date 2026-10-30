@@ -7,114 +7,104 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PasswordResetMailService {
 
-    private static final DateTimeFormatter EXPIRY_FORMAT =
-            DateTimeFormatter
-                    .ofPattern("dd MMM uuuu, HH:mm 'UTC'")
-                    .withZone(ZoneOffset.UTC);
+        private static final DateTimeFormatter EXPIRY_FORMAT = DateTimeFormatter
+                        .ofPattern("dd MMM uuuu, HH:mm 'UTC'")
+                        .withZone(ZoneOffset.UTC);
 
-    private final JavaMailSender mailSender;
-    private final String fromAddress;
-    private final String frontendBaseUrl;
+        private final PasswordResetEmailSender mailSender;
+        private final String fromAddress;
+        private final String frontendBaseUrl;
 
-    public PasswordResetMailService(
-            JavaMailSender mailSender,
-            @Value("${app.mail.from}") String fromAddress,
-            @Value("${app.frontend-base-url}") String frontendBaseUrl
-    ) {
-        this.mailSender = mailSender;
-        this.fromAddress = fromAddress;
-        this.frontendBaseUrl = validateBaseUrl(frontendBaseUrl);
-    }
-
-    public void sendResetLink(
-            String recipientEmail,
-            String token,
-            Instant expiresAt
-    ) {
-        if (token == null
-                || !token.matches("^[A-Za-z0-9_-]{43}$")) {
-            throw new IllegalArgumentException(
-                    "Invalid password reset token format."
-            );
+        public PasswordResetMailService(
+                        PasswordResetEmailSender mailSender,
+                        @Value("${app.mail.from}") String fromAddress,
+                        @Value("${app.frontend-base-url}") String frontendBaseUrl) {
+                this.mailSender = mailSender;
+                this.fromAddress = fromAddress;
+                this.frontendBaseUrl = validateBaseUrl(frontendBaseUrl);
         }
 
-        String resetLink = frontendBaseUrl
-                + "/reset-password#token="
-                + token;
+        public void sendResetLink(
+                        String recipientEmail,
+                        String token,
+                        Instant expiresAt) {
+                if (token == null
+                                || !token.matches("^[A-Za-z0-9_-]{43}$")) {
+                        throw new IllegalArgumentException(
+                                        "Invalid password reset token format.");
+                }
 
-        SimpleMailMessage message = new SimpleMailMessage();
+                String resetLink = frontendBaseUrl
+                                + "/reset-password#token="
+                                + token;
 
-        message.setFrom(fromAddress);
-        message.setTo(recipientEmail);
-        message.setSubject(
-                "Reset your Classroom Allocator password"
-        );
+                SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setText("""
-                Hello,
+                message.setFrom(fromAddress);
+                message.setTo(recipientEmail);
+                message.setSubject(
+                                "Reset your Classroom Allocator password");
 
-                We received a request to reset your Classroom Allocator password.
+                message.setText("""
+                                Hello,
 
-                Open this link to choose a new password:
+                                We received a request to reset your Classroom Allocator password.
 
-                %s
+                                Open this link to choose a new password:
 
-                This link expires at %s and can be used only once.
+                                %s
 
-                If you did not request this, you can ignore this email.
-                Your password has not been changed.
+                                This link expires at %s and can be used only once.
 
-                Do not forward this email or share the reset link.
+                                If you did not request this, you can ignore this email.
+                                Your password has not been changed.
 
-                Classroom Allocator
-                """.formatted(
-                resetLink,
-                EXPIRY_FORMAT.format(expiresAt)
-        ));
+                                Do not forward this email or share the reset link.
 
-        mailSender.send(message);
-    }
+                                Classroom Allocator
+                                """.formatted(
+                                resetLink,
+                                EXPIRY_FORMAT.format(expiresAt)));
 
-    private static String validateBaseUrl(String value) {
-        URI uri = URI.create(value.trim());
-
-        String scheme = uri.getScheme();
-        String host = uri.getHost();
-        String path = uri.getRawPath();
-
-        boolean https = "https".equalsIgnoreCase(scheme);
-
-        boolean localHttp =
-                "http".equalsIgnoreCase(scheme)
-                && ("localhost".equalsIgnoreCase(host)
-                    || "127.0.0.1".equals(host));
-
-        boolean validOrigin =
-                host != null
-                && uri.getRawUserInfo() == null
-                && uri.getRawQuery() == null
-                && uri.getRawFragment() == null
-                && (path == null
-                    || path.isEmpty()
-                    || "/".equals(path));
-
-        if ((!https && !localHttp) || !validOrigin) {
-            throw new IllegalArgumentException(
-                    "Frontend URL must be an HTTPS origin "
-                    + "or localhost HTTP origin."
-            );
+                mailSender.send(message);
         }
 
-        String normalized = uri.toASCIIString();
+        private static String validateBaseUrl(String value) {
+                URI uri = URI.create(value.trim());
 
-        return normalized.endsWith("/")
-                ? normalized.substring(0, normalized.length() - 1)
-                : normalized;
-    }
+                String scheme = uri.getScheme();
+                String host = uri.getHost();
+                String path = uri.getRawPath();
+
+                boolean https = "https".equalsIgnoreCase(scheme);
+
+                boolean localHttp = "http".equalsIgnoreCase(scheme)
+                                && ("localhost".equalsIgnoreCase(host)
+                                                || "127.0.0.1".equals(host));
+
+                boolean validOrigin = host != null
+                                && uri.getRawUserInfo() == null
+                                && uri.getRawQuery() == null
+                                && uri.getRawFragment() == null
+                                && (path == null
+                                                || path.isEmpty()
+                                                || "/".equals(path));
+
+                if ((!https && !localHttp) || !validOrigin) {
+                        throw new IllegalArgumentException(
+                                        "Frontend URL must be an HTTPS origin "
+                                                        + "or localhost HTTP origin.");
+                }
+
+                String normalized = uri.toASCIIString();
+
+                return normalized.endsWith("/")
+                                ? normalized.substring(0, normalized.length() - 1)
+                                : normalized;
+        }
 }

@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: classroom-allocator
+    runtime: docker
+    plan: free
+    region: singapore
+    numInstances: 1
+
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+
+    healthCheckPath: /api/health
+    autoDeployTrigger: off
+
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+
+      - key: NEON_JDBC_URL
+        sync: false
+
+      - key: NEON_USERNAME
+        sync: false
+
+      - key: NEON_PASSWORD
+        sync: false
+
+      - key: BREVO_API_KEY
+        sync: false
+
+      - key: MAIL_FROM
+        sync: false
