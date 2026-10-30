@@ -242,3 +242,13 @@ Use a separate test database when running database-backed tests.
 The application is under active development.
 A successful deployment should be followed by testing login,
 role permissions, timetable publication, and password recovery.
+
+---
+
+<p align="center">
+  <strong>Designed &amp; Developed by Piyush Barman</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/PIYUSHBARMAN7">GitHub · PIYUSHBARMAN7</a>
+</p>
