@@ -1,0 +1,43 @@
+# Dependencies
+**/node_modules/
+**/nodejs/
+
+# Build output
+**/target/
+**/dist/
+**/coverage/
+**/*.tsbuildinfo
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local configuration containing credentials
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+
+# Private keys and certificates
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.jks
+
+# Logs
+**/*.log
+**/logs/
+
+# Editor settings
+**/.idea/
+**/.vscode/
+**/*.iml
+
+# Operating system files
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+
+# React files generated inside Spring Boot by Docker
+/backend/src/main/resources/static/

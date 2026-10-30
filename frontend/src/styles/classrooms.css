@@ -1,0 +1,214 @@
+.classrooms-page {
+  min-height: 100vh;
+  padding: clamp(1rem, 4vw, 3rem);
+  color: #202020;
+  background: #fffced;
+}
+
+.classrooms-page *,
+.classrooms-page *::before,
+.classrooms-page *::after {
+  box-sizing: border-box;
+}
+
+.rooms-header,
+.rooms-panel,
+.rooms-message {
+  max-width: 1400px;
+  margin: 0 auto 1.5rem;
+}
+
+.rooms-header h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.rooms-eyebrow {
+  margin-top: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.rooms-panel {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 3px solid #202020;
+  background: #fff;
+  box-shadow: 6px 6px 0 #202020;
+}
+
+.rooms-panel h2 {
+  margin-top: 0;
+}
+
+.rooms-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rooms-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.rooms-form-grid label,
+.rooms-filter {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.classrooms-page input:not([type='checkbox']),
+.classrooms-page select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 2px solid #202020;
+  border-radius: 0;
+  background: #fffef8;
+  color: #202020;
+  font: inherit;
+}
+
+.rooms-checkboxes,
+.rooms-actions,
+.rooms-toolbar,
+.rooms-pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.rooms-checkboxes {
+  margin: 1.25rem 0;
+  gap: 1.5rem;
+}
+
+.rooms-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rooms-checkboxes input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: #202020;
+}
+
+.rooms-toolbar,
+.rooms-pagination {
+  justify-content: space-between;
+}
+
+.rooms-toolbar {
+  margin-bottom: 1rem;
+}
+
+.rooms-toolbar h2 {
+  margin: 0;
+}
+
+.rooms-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid #202020;
+  background: #fff;
+  color: #202020;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rooms-button.yellow {
+  background: #ffe545;
+  box-shadow: 3px 3px 0 #202020;
+}
+
+.rooms-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.classrooms-page :focus-visible {
+  outline: 3px solid #2454d7;
+  outline-offset: 3px;
+}
+
+.rooms-message {
+  padding: 1rem;
+  border: 2px solid #202020;
+}
+
+.rooms-error {
+  color: #711b1b;
+  background: #ffe1e1;
+}
+
+.rooms-success {
+  color: #164025;
+  background: #dcf5df;
+}
+
+.rooms-table-scroll {
+  overflow-x: auto;
+}
+
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.rooms-table th,
+.rooms-table td {
+  padding: 0.9rem;
+  border: 1px solid #b7b7b7;
+  vertical-align: top;
+}
+
+.rooms-table th {
+  background: #fff1a4;
+}
+
+.rooms-table td div {
+  margin-top: 0.3rem;
+}
+
+.rooms-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #202020;
+  background: #ececec;
+  font-weight: 700;
+}
+
+.rooms-status.is-active {
+  background: #dcf5df;
+}
+
+.rooms-pagination {
+  margin-top: 1.5rem;
+}
+
+.rooms-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .rooms-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rooms-toolbar {
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,327 @@
+.allocation-page {
+  min-height: 100vh;
+  padding: 32px max(20px, calc((100vw - 1120px) / 2)) 72px;
+  background: #f7f3e6;
+  color: #171717;
+}
+
+.allocation-page,
+.allocation-page * {
+  box-sizing: border-box;
+}
+
+.allocation-back {
+  color: inherit;
+  font-weight: 800;
+}
+
+.allocation-heading {
+  margin: 36px 0 24px;
+}
+
+.allocation-eyebrow {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.allocation-heading h1 {
+  margin: 12px 0;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.allocation-heading p,
+.allocation-notice,
+.allocation-unallocated p {
+  line-height: 1.6;
+}
+
+.allocation-notice {
+  padding: 18px;
+  background: #cce6ff;
+  border: 2px solid #171717;
+}
+
+.allocation-panel {
+  min-width: 0;
+  margin-top: 28px;
+  padding: clamp(18px, 3vw, 28px);
+  background: #fff;
+  border: 3px solid #171717;
+  box-shadow: 5px 5px 0 #171717;
+}
+
+.allocation-panel h2 {
+  margin: 0 0 20px;
+}
+
+.allocation-section-heading,
+.allocation-actions,
+.allocation-pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.allocation-section-heading {
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.allocation-section-heading h2 {
+  margin: 0;
+}
+
+.allocation-button {
+  padding: 10px 15px;
+  border: 2px solid #171717;
+  background: #fff;
+  color: #171717;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.allocation-primary {
+  background: #ffe545;
+  box-shadow: 3px 3px 0 #171717;
+}
+
+.allocation-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.allocation-requirement-list,
+.allocation-selected-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.allocation-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 2px solid #171717;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.allocation-option.is-selected {
+  background: #fff3a6;
+}
+
+.allocation-option input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #171717;
+}
+
+.allocation-option-detail {
+  display: block;
+  margin-top: 7px;
+  line-height: 1.5;
+}
+
+.allocation-pagination {
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.allocation-selection {
+  background: #fff3a6;
+}
+
+.allocation-selected-list {
+  margin-bottom: 24px;
+}
+
+.allocation-selected-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #171717;
+  overflow-wrap: anywhere;
+}
+
+.allocation-error {
+  padding: 16px;
+  background: #ffe3e3;
+  border: 2px solid #171717;
+  line-height: 1.6;
+}
+
+.allocation-result-summary {
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.allocation-table-scroll {
+  overflow-x: auto;
+}
+
+.allocation-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.allocation-table caption {
+  padding: 12px 0;
+  text-align: left;
+  font-weight: 700;
+}
+
+.allocation-table th,
+.allocation-table td {
+  padding: 14px;
+  border: 2px solid #171717;
+  text-align: left;
+}
+
+.allocation-table thead {
+  background: #cce6ff;
+}
+
+.allocation-unallocated {
+  margin-top: 24px;
+  padding: 18px;
+  background: #ffe8f1;
+  border: 2px solid #171717;
+}
+
+.allocation-unallocated li {
+  margin-bottom: 20px;
+}
+
+.allocation-page :focus-visible {
+  outline: 3px solid #2f63e8;
+  outline-offset: 4px;
+}
+
+@media (max-width: 520px) {
+  .allocation-page {
+    padding-top: 24px;
+  }
+
+  .allocation-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .allocation-panel {
+    box-shadow: 3px 3px 0 #171717;
+  }
+
+  .allocation-pagination {
+    justify-content: flex-start;
+  }
+}
+
+.allocation-draft-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 13px;
+  border: 2px solid #171717;
+  border-radius: 0;
+  background: #fff;
+  color: #171717;
+  font: inherit;
+}
+
+.student-assignment-details {
+  margin: 0 0 24px;
+}
+
+.student-assignment-details > div {
+  padding: 14px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.student-assignment-details dt {
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.student-assignment-details dd {
+  margin: 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.draft-validation {
+  margin: 24px 0;
+  padding: clamp(16px, 3vw, 24px);
+  border: 2px solid #171717;
+  background: #f7f3e6;
+}
+
+.draft-validation .allocation-section-heading h3 {
+  margin: 0;
+}
+
+.draft-validation p,
+.draft-validation li {
+  line-height: 1.6;
+}
+
+.draft-validation li + li {
+  margin-top: 10px;
+}
+
+.draft-validation-note {
+  margin: 18px 0 0;
+  font-size: 14px;
+}
+
+.publication-confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 22px 0;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.publication-confirmation input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  accent-color: #171717;
+}
+
+.personal-timetable-publication {
+  margin: 20px 0;
+  padding: 18px;
+  border: 2px solid #171717;
+  background: #fff3a6;
+  overflow-wrap: anywhere;
+}
+
+.personal-timetable-publication strong {
+  font-size: 20px;
+}
+
+.personal-timetable-publication p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.timetable-filter {
+  margin-bottom: 24px;
+}
+
+.timetable-update-note {
+  font-size: 14px;
+  line-height: 1.6;
+}

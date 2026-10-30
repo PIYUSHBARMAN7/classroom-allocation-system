@@ -1,0 +1,132 @@
+/* Split the existing hero into text and illustration */
+.hero-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-copy > p {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.7;
+  animation: hero-enter 550ms ease-out 250ms backwards;
+}
+
+.classroom-mascot {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  justify-self: center;
+  pointer-events: none;
+}
+
+.mascot-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mascot-body {
+  animation: mascot-float 5s ease-in-out infinite;
+}
+
+.mascot-wave {
+  transform-box: view-box;
+  transform-origin: 235px 194px;
+  animation: mascot-wave 4s ease-in-out infinite;
+}
+
+.mascot-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascot-blink 6s linear infinite;
+}
+
+.mascot-ground {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascot-shadow 5s ease-in-out infinite;
+}
+
+.mascot-sticker {
+  display: block;
+  width: fit-content;
+  margin: 5px auto 0;
+  padding: 10px 14px;
+  background: #fffdee;
+  color: #171717;
+  border: 3px solid #171717;
+  box-shadow: 4px 4px 0 #171717;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  transform: rotate(-3deg);
+}
+
+.mascot-spark {
+  position: absolute;
+  color: #ffe228;
+  font-size: 36px;
+  animation: mascot-spark 4s ease-in-out infinite;
+}
+
+.spark-one {
+  top: 22%;
+  left: 0;
+}
+
+.spark-two {
+  top: 3%;
+  right: 0;
+  font-size: 24px;
+  animation-delay: -2s;
+}
+
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes mascot-wave {
+  0%, 45%, 100% { transform: rotate(0deg); }
+  12%, 32% { transform: rotate(-12deg); }
+  22% { transform: rotate(5deg); }
+}
+
+@keyframes mascot-blink {
+  0%, 43%, 47%, 100% { transform: scaleY(1); }
+  45% { transform: scaleY(0.1); }
+}
+
+@keyframes mascot-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.2; }
+  50% { transform: scaleX(0.85); opacity: 0.12; }
+}
+
+@keyframes mascot-spark {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-8px) rotate(15deg); }
+}
+
+@media (max-width: 900px) {
+  .hero-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .classroom-mascot {
+    max-width: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .classroom-mascot *,
+  .hero-copy > p {
+    animation: none;
+  }
+}

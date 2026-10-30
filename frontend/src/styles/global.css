@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fffdee;
+  color: #171717;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px dashed #171717;
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Firefox and browsers supporting standard scrollbar colours */
+html {
+  scrollbar-color: #2f63e8 #f7f3e6;
+  scrollbar-width: auto;
+}
+
+/* Chrome, Edge and Safari */
+@supports not (scrollbar-color: #2f63e8 #f7f3e6) {
+  ::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f7f3e6;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2f63e8;
+    border: 3px solid #f7f3e6;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #244fbd;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #f7f3e6;
+  }
+}

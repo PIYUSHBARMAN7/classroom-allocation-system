@@ -1,0 +1,30 @@
+.requirement-picker {
+  min-width: 0;
+  padding: 1rem;
+  border: 2px solid #202020;
+  background: #fffced;
+}
+
+.requirement-picker > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.requirement-picker-note {
+  margin: 0.6rem 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.requirement-picker .rooms-button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.requirement-workload {
+  padding: 1rem;
+  border: 2px solid #202020;
+  background: #fff1a4;
+}

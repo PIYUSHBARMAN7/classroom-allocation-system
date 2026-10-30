@@ -1,0 +1,17 @@
+**/node_modules
+**/nodejs
+**/target
+**/dist
+**/.git
+
+**/.env
+**/.env.*
+**/*.log
+**/*.tsbuildinfo
+
+**/.idea
+**/.vscode
+**/Thumbs.db
+**/.DS_Store
+
+backend/src/main/resources/static
