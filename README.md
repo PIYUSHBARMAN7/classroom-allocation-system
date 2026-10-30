@@ -63,6 +63,15 @@ flowchart TD
 Teacher and Student timetables require the appropriate account links
 and a published schedule.
 
+<p align="center">
+  <a href="https://classroom-allocator.onrender.com/">
+    <img
+      src="https://img.shields.io/badge/Open_Live_Website-171717?style=for-the-badge&logo=googlechrome&logoColor=FFE470"
+      alt="Open Classroom Allocator"
+    />
+  </a>
+</p>
+
 # Classroom Allocation System
 
 A full-stack application for managing classrooms, academic information,
